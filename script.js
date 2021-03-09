@@ -1,7 +1,7 @@
 window.onload = function () {
 
+    getRandomSuperHero();
     const hero_btn = document.getElementById("hero_btn");
-
     hero_btn.addEventListener('click', getRandomSuperHero);
 
 }
@@ -17,10 +17,23 @@ function getRandomSuperHero() {
         .then(data => {
             super_hero.innerHTML = `<img src="${data.image.url}" alt="${data.name}"/>`;
             super_hero_name.innerHTML = `${data.name}`;
-            powerstats.innerHTML = "";
-            for(let prop in data.powerstats){
-                powerstats.innerHTML += `<p>${prop} ${data.powerstats[prop]}</p>`
-            }
-
+            getPowerStats(data);
+            getBiography(data);
         })
 };
+
+function getPowerStats(data) {
+    powerstats.innerHTML = "";
+    for (let prop in data.powerstats) {
+        powerstats.innerHTML += `<p>${prop} ${data.powerstats[prop]}</p>`
+    }
+}
+function getBiography(data) {
+    biography.innerHTML = "";
+    let names = ["Full Name:", "Alter egos:", "Aliases:", "Place of Birth:", "First Appearance:", "Publisher:","Alignment:"]
+    let i = 0;
+    for (let prop in data.biography) {
+        biography.innerHTML += `<p>${names[i]}  ${data.biography[prop]}</p>`;
+        i++;
+    }
+}
