@@ -3,5 +3,5 @@ I implemented the option to fetch a random duper hero from the api or to search 
 
 With this project my main goal was to start getting more comfortable manipulating the <b>DOM</b>, using <b>APIs</b> and to practice <b>htlm and css layout</b>.
 
-Live App
+<h2>Live App</h2>
 https://random-super-hero.herokuapp.com/
