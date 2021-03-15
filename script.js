@@ -35,7 +35,7 @@ function getSearchedHero() {
         .then(resp => resp.json())
         .then(data => {
             if (data.response === "error") {
-                error_msg.innerHTML = `${data.error}`
+                error_msg.innerHTML = `${data.error}. Please try other name.`
             } else {
                 error_msg.innerHTML = "";
                 super_hero.innerHTML = `<img src="${data.results[0].image.url}" alt="${data.results[0].name}"/>`;
